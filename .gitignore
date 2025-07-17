@@ -1,0 +1,14 @@
+# Ignore build results
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.sqlite
+*.pdb
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore frontend
+flightboard-frontend/
