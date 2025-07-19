@@ -22,7 +22,7 @@ This repository contains the backend services for the FlightBoard project. It is
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/flightboard-backend.git
+   git clone https://github.com/NaorOrZion/flightboard-backend.git
    cd flightboard-backend
    ```
 
@@ -36,6 +36,7 @@ This repository contains the backend services for the FlightBoard project. It is
 
    ```sh
    cd FlightBoard.API
+   dotnet tool install --global dotnet-ef
    dotnet ef database update
    ```
 
