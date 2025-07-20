@@ -89,14 +89,7 @@ This repository contains the backend services for the FlightBoard project. It is
 - The API exposes endpoints for managing flights (CRUD operations).
 - For detailed API documentation, see the controllers in `FlightBoard.API/Controllers/`.
 
-## Screen Recording (Optional)
+## Screen Recording 
 
-You may include a short screen recording (e.g., GIF or video) of the running application here to demonstrate its features.
 
-## Contributing
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License.
