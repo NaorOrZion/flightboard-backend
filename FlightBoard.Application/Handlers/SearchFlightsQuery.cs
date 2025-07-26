@@ -22,7 +22,7 @@ public class SearchFlightsQueryHandler : IRequestHandler<SearchFlightsQuery, IEn
     public async Task<IEnumerable<FlightDto>> Handle(SearchFlightsQuery request, CancellationToken cancellationToken)
     {
         var flights = await _flightRepository.GetByStatusAndDestinationAsync(request.Status, request.Destination);
-        var currentTime = DateTime.UtcNow;
+        var currentTime = DateTime.Now;
 
         return flights.Select(flight => new FlightDto
         {

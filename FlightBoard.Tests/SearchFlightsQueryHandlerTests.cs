@@ -16,13 +16,14 @@ public class SearchFlightsQueryHandlerTests
         var repoMock = new Mock<IFlightRepository>();
         var statusServiceMock = new Mock<IFlightStatusService>();
 
-        var flights = new List<Flight>
+        var allFlights = new List<Flight>
         {
-            new Flight { Id = 1, FlightNumber = "IS100", Destination = "Paris", DepartureTime = DateTime.UtcNow.AddMinutes(40), Gate = "A1" },
-            new Flight { Id = 2, FlightNumber = "IS200", Destination = "London", DepartureTime = DateTime.UtcNow.AddMinutes(20), Gate = "B2" }
+            new Flight { Id = 1, FlightNumber = "IS100", Destination = "Paris", DepartureTime = DateTime.Now.AddMinutes(40), Gate = "A1" },
+            new Flight { Id = 2, FlightNumber = "IS200", Destination = "London", DepartureTime = DateTime.Now.AddMinutes(20), Gate = "B2" }
         };
 
-        repoMock.Setup(r => r.GetByStatusAndDestinationAsync(null, "Paris")).ReturnsAsync(flights);
+        repoMock.Setup(r => r.GetByStatusAndDestinationAsync(null, "Paris"))
+            .ReturnsAsync(allFlights.Where(f => f.Destination.Contains("Paris")).ToList());
 
         statusServiceMock.Setup(s => s.CalculateFlightStatus(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
             .Returns(FlightStatusType.Scheduled);
@@ -35,8 +36,7 @@ public class SearchFlightsQueryHandlerTests
 
         Assert.NotNull(result);
         Assert.Collection(result,
-            item => Assert.Equal("IS100", item.FlightNumber),
-            item => Assert.Equal("IS200", item.FlightNumber)
+            item => Assert.Equal("IS100", item.FlightNumber)
         );
     }
 } 

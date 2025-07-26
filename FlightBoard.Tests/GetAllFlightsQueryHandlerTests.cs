@@ -18,8 +18,8 @@ public class GetAllFlightsQueryHandlerTests
 
         var flights = new List<Flight>
         {
-            new Flight { Id = 1, FlightNumber = "IS100", Destination = "Paris", DepartureTime = DateTime.UtcNow.AddMinutes(40), Gate = "A1" },
-            new Flight { Id = 2, FlightNumber = "IS200", Destination = "London", DepartureTime = DateTime.UtcNow.AddMinutes(20), Gate = "B2" }
+            new Flight { Id = 1, FlightNumber = "IS100", Destination = "Paris", DepartureTime = DateTime.Now.AddMinutes(40), Gate = "A1" },
+            new Flight { Id = 2, FlightNumber = "IS200", Destination = "London", DepartureTime = DateTime.Now.AddMinutes(20), Gate = "B2" }
         };
 
         repoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(flights);

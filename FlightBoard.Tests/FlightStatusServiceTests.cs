@@ -13,7 +13,7 @@ public class FlightStatusServiceTests
     [InlineData(-70, FlightStatusType.Landed)]
     public void CalculateFlightStatus_ReturnsExpectedStatus(int minutesFromNow, FlightStatusType expected)
     {
-        var now = DateTime.UtcNow;
+        var now = DateTime.Now;
         var departure = now.AddMinutes(minutesFromNow);
 
         var result = _service.CalculateFlightStatus(departure, now);

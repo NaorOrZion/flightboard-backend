@@ -53,7 +53,7 @@ public class FlightRepository : IFlightRepository
         // Filter by status if provided (status is calculated, not stored)
         if (status.HasValue)
         {
-            var currentTime = DateTime.UtcNow;
+            var currentTime = DateTime.Now;
             flights = flights.Where(f =>
             {
                 var timeDifference = f.DepartureTime - currentTime;
@@ -84,7 +84,7 @@ public class FlightRepository : IFlightRepository
 
     public async Task<Flight> UpdateAsync(Flight flight)
     {
-        flight.UpdatedAt = DateTime.UtcNow;
+        flight.UpdatedAt = DateTime.Now;
         _context.Flights.Update(flight);
         await _context.SaveChangesAsync();
         return flight;

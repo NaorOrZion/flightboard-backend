@@ -9,7 +9,7 @@ public class FlightStatusService : IFlightStatusService
     {
         var timeDifference = departureTime - currentTime;
         var totalMinutes = timeDifference.TotalMinutes;
-
+        
         return totalMinutes switch
         {
             > 30 => FlightStatusType.Scheduled,

@@ -30,7 +30,7 @@ public class CreateFlightCommandHandler : IRequestHandler<CreateFlightCommand, F
         if (string.IsNullOrWhiteSpace(flightDto.Gate))
             throw new ArgumentException("Gate is required.");
 
-        if (flightDto.DepartureTime <= DateTime.UtcNow)
+        if (flightDto.DepartureTime <= DateTime.Now)
             throw new ArgumentException("Departure time must be in the future.");
 
         // Check if flight number already exists
@@ -43,7 +43,7 @@ public class CreateFlightCommandHandler : IRequestHandler<CreateFlightCommand, F
             Destination = flightDto.Destination,
             DepartureTime = flightDto.DepartureTime,
             Gate = flightDto.Gate,
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.Now
         };
 
         var createdFlight = await _flightRepository.AddAsync(flight);

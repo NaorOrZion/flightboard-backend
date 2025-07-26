@@ -6,6 +6,7 @@ using FlightBoard.Domain.Entities;
 
 public class DeleteFlightCommandHandlerTests
 {
+    // should throw exception when flight not found
     [Fact]
     public async Task Handle_ThrowsException_WhenFlightNotFound()
     {
@@ -18,6 +19,7 @@ public class DeleteFlightCommandHandlerTests
             handler.Handle(new DeleteFlightCommand(123), default));
     }
 
+    // should delete flight when found and return true
     [Fact]
     public async Task Handle_DeletesFlight_WhenFlightExists()
     {

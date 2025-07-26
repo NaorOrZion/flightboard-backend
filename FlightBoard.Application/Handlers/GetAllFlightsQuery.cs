@@ -21,7 +21,7 @@ public class GetAllFlightsQueryHandler : IRequestHandler<GetAllFlightsQuery, IEn
     public async Task<IEnumerable<FlightDto>> Handle(GetAllFlightsQuery request, CancellationToken cancellationToken)
     {
         var flights = await _flightRepository.GetAllAsync();
-        var currentTime = DateTime.UtcNow;
+        var currentTime = DateTime.Now;
 
         return flights.Select(flight => new FlightDto
         {

@@ -21,7 +21,7 @@ public class Flight
     [StringLength(10)]
     public string Gate { get; set; } = string.Empty;
     
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime? UpdatedAt { get; set; }
     
     // Navigation properties for future extensions
@@ -33,7 +33,7 @@ public class FlightStatus
     public int Id { get; set; }
     public int FlightId { get; set; }
     public FlightStatusType Status { get; set; }
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+    public DateTime Timestamp { get; set; } = DateTime.Now;
     
     public virtual Flight Flight { get; set; } = null!;
 }

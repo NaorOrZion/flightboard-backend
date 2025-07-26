@@ -29,9 +29,9 @@ public class FlightRepositoryInMemoryTests
         {
             FlightNumber = "IS500",
             Destination = "Berlin",
-            DepartureTime = DateTime.UtcNow.AddHours(2),
+            DepartureTime = DateTime.Now.AddHours(2),
             Gate = "C1",
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.Now
         };
         await repo.AddAsync(flight);
         var all = await repo.GetAllAsync();
@@ -47,9 +47,9 @@ public class FlightRepositoryInMemoryTests
         {
             FlightNumber = "IS600",
             Destination = "Rome",
-            DepartureTime = DateTime.UtcNow.AddHours(3),
+            DepartureTime = DateTime.Now.AddHours(3),
             Gate = "D2",
-            CreatedAt = DateTime.UtcNow
+            CreatedAt = DateTime.Now
         };
         await repo.AddAsync(flight);
         await repo.DeleteAsync(flight.Id);

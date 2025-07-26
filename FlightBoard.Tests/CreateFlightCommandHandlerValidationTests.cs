@@ -18,7 +18,7 @@ public class CreateFlightCommandHandlerValidationTests
         {
             FlightNumber = "",
             Destination = "Paris",
-            DepartureTime = DateTime.UtcNow.AddHours(1),
+            DepartureTime = DateTime.Now.AddHours(1),
             Gate = "A1"
         };
         await Assert.ThrowsAsync<ArgumentException>(() =>
@@ -35,7 +35,7 @@ public class CreateFlightCommandHandlerValidationTests
         {
             FlightNumber = "IS700",
             Destination = "",
-            DepartureTime = DateTime.UtcNow.AddHours(1),
+            DepartureTime = DateTime.Now.AddHours(1),
             Gate = "A1"
         };
         await Assert.ThrowsAsync<ArgumentException>(() =>
@@ -52,7 +52,7 @@ public class CreateFlightCommandHandlerValidationTests
         {
             FlightNumber = "IS800",
             Destination = "Paris",
-            DepartureTime = DateTime.UtcNow.AddHours(1),
+            DepartureTime = DateTime.Now.AddHours(1),
             Gate = ""
         };
         await Assert.ThrowsAsync<ArgumentException>(() =>

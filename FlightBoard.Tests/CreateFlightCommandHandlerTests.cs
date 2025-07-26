@@ -19,7 +19,7 @@ public class CreateFlightCommandHandlerTests
         {
             FlightNumber = "DUPLICATE",
             Destination = "Paris",
-            DepartureTime = DateTime.UtcNow.AddHours(1),
+            DepartureTime = DateTime.Now.AddHours(1),
             Gate = "A1"
         };
 
@@ -39,7 +39,7 @@ public class CreateFlightCommandHandlerTests
         {
             FlightNumber = "IS400",
             Destination = "Paris",
-            DepartureTime = DateTime.UtcNow.AddHours(-1),
+            DepartureTime = DateTime.Now.AddHours(-1),
             Gate = "A1"
         };
 
