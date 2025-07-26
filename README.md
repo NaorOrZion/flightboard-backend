@@ -45,6 +45,7 @@ This repository contains the backend services for the FlightBoard project. It is
 4. **Run the API:**
 
    ```sh
+   cd ..
    dotnet run --project FlightBoard.API
    ```
 
